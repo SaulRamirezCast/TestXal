@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
 fetch ('https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=perl&site=stackoverflow') 
   .then(res =>res.json())
@@ -26,8 +26,8 @@ fetch ('https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitl
     function getMoreOwners () { 
       console.log('_______________________________________________')
       console.log('Obtener la respuesta con mayor owners') 
-      console.log('La respuesta con mas owners tiene: ')
-      console.log(Math.max.apply(Math, json.items.map(function(o){return o.owner.reputation;}))) 
+      console.log('La respuesta con más owners tiene: ')
+      console.log(Math.max.apply(Math, json.items.map(function(o){return o.view_count;}))) 
     }
 
     function getLessCount () { 
@@ -40,10 +40,10 @@ fetch ('https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitl
 
     function getMinMax () {
       console.log('_______________________________________________')
-      console.log('Obtener la respuesta mas vieja y mas actual:') 
-      console.log('La respuesta mas nueva es: ')
+      console.log('Obtener la respuesta mas vieja y más actual:') 
+      console.log('La respuesta más nueva es: ')
       console.log(Math.max.apply(Math, json.items.map(function(o){return o.creation_date;})))
-      console.log('La respuesta mas vieja es: ')
+      console.log('La respuesta más vieja es: ')
       console.log(Math.min.apply(Math, json.items.map(function(o){return o.creation_date;})))
     }
   
